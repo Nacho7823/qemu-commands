@@ -76,6 +76,7 @@ sudo apt-get install qemu qemu-system
   ```bash
   qemu-system-x86_64 -net nic -net user
   ```
+  - `-net nic`: crea una tarjeta de red virtual.
   - `-net user`: modo NAT, no requiere configuración extra.
 
 ### Bridge (puente, conecta la VM a la red física):
@@ -156,11 +157,14 @@ sudo apt-get install qemu qemu-system
   ```bash
   qemu-system-x86_64 -vga virtio -display sdl,gl=on
   ```
-  - `-vga virtio | -vga virtio-vga-gl`: adaptador gráfico moderno.
+  - `-vga virtio`: adaptador gráfico moderno.
   - `-display sdl,gl=on`: habilita OpenGL.
   
   Agregar soporte para venus
   - `-device virtio-vga-gl,hostmem=4G,blob=true,venus=true`
+  - `-device virtio-vga-gl`: adaptador gráfico con soporte OpenGL.
+  - `hostmem=4G`: memoria del host para gráficos.
+  - `blob=true`: habilita el uso de blobs de gráficos.
 
 ## USB
 
